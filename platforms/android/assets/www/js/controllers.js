@@ -1,7 +1,9 @@
 angular.module('starter.controllers', [])
 
 .controller('AuthCtrl', function($scope, $ionicConfig, $state, $stateParams, $rootScope) {
-
+  if($rootScope.getData('rudyard_user_info') != 'null'){
+    $state.go('app.phonebook');
+  }
 })
 
 // APP
@@ -208,13 +210,13 @@ angular.module('starter.controllers', [])
   $scope.user.email = "john@doe.com";
 
   $scope.doSignUp = function(){
-    $state.go('app.feeds-categories');
+    //$state.go('app.feeds-categories');
   };
 })
 
 .controller('ForgotPasswordCtrl', function($scope, $state) {
   $scope.recoverPassword = function(){
-    $state.go('app.feeds-categories');
+    //$state.go('app.feeds-categories');
   };
 
   $scope.user = {};

@@ -10059,14 +10059,14 @@ ion-spinner.spinner-on-load {
   margin-bottom: 0px; }
 
 ion-side-menu ion-content {
-  background-color: #23262a; }
+  background-color: #393e41; }
 
 ion-side-menu ion-item.item {
   border-right: none;
   border-left: none;
   border-color: #33383e; }
   ion-side-menu ion-item.item .item-content {
-    background-color: #23262a; }
+    background-color: #393e41; }
     ion-side-menu ion-item.item .item-content .icon:before {
       background-color: #3E454C;
       color: #FFFFFF;
