@@ -1,0 +1,43 @@
+<ion-view class="billing-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Billing History</span>
+  </ion-nav-title>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="card" ng-repeat="billing in billings">
+      <div class="list">
+        <a class="item">
+          Amount Paid
+          <span class="item-note">
+            {{billing.amount}}
+          </span>
+        </a>
+        <a class="item">
+          Unit Price
+          <span class="item-note">
+            {{billing.unit_price}}
+          </span>
+        </a>
+        <a class="item">
+          Minutes Bought
+          <span class="item-note">
+            {{billing.minutes}}
+          </span>
+        </a>
+        <a class="item">
+          Date
+          <span class="item-note">
+            <!-- {{billing.timestamp | split:' ': 0}} -->
+            {{billing.timestamp}}
+          </span>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

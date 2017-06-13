@@ -1,0 +1,33 @@
+<ion-view class="forms-view">
+  <ion-nav-title>
+    <span>Play</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider grey-bg">
+        <h1>{{recording.callee_name}}</h1>
+      </div>
+      <div class="list">
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios-clock-outline"></i>
+          {{recording.initiated_time}}
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios-timer"></i>
+          {{recording.DialCallDuration == '' ? 0 : recording.DialCallDuration}} seconds
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios-information-outline"></i>
+          {{recording.CallStatus}}
+        </a>
+
+      </div>
+    </div>
+    <div class="card" id="audio_container">
+      <audio id="myAudio" src="" controls></audio>
+    </div>
+  </ion-content>
+</ion-view>

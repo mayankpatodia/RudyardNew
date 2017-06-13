@@ -1,0 +1,35 @@
+<ion-view class="login-view auth-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="row">
+      <div class="col col-center">
+        <div class="card login-container">
+          <div class="padding">
+            <form name="login_form" class="" novalidate ng-cloak>
+              <div class="list">
+                <label class="item item-input item-floating-label">
+                  <span class="input-label">Email</span>
+                  <input type="email" placeholder="Email" name="user_email" ng-model="user.email" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                  <span class="input-label">Password</span>
+                  <input type="password" placeholder="Password" name="user_password" ng-model="user.password" required show-hide-input>
+                </label>
+              </div>
+              <button type="submit" class="button red-bg white-fg col" ng-click="doLogIn(user)" ng-disabled="login_form.user_email.$invalid || login_form.user_password.$invalid">
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="alternative-actions">
+          <a class="forgot-password button button-small button-clear button-light" ui-sref="auth.forgot-password">
+            Forgot Password?
+          </a>
+          <a class="sign-up button button-small button-clear button-light" ui-sref="auth.signup">
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

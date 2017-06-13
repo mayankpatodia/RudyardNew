@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary red-bg white-fg">
+      <h1 class="title white-fg">New Contact</h1>
+      <button class="button button-clear white-fg" ng-click="closeNewContact()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content class="padding">
+
+      <form ng-submit="createContact(contact)">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">First Name</span>
+            <input ng-model="contact.first_name" type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Last Name</span>
+            <input ng-model="contact.last_name" type="text">
+          </label>
+          <div class="row">
+            <div class="col-20">
+              <label class="item item-input">
+                <span class="input-label">Phone</span>
+                <input ng-model="contact.country_code" type="text">
+              </label>
+            </div>
+            <div class="col-80">
+              <label class="item item-input">
+                <span class="input-label">Phone</span>
+                <input ng-model="contact.phone" type="text">
+              </label>
+            </div>
+          </div>
+          
+        </div>
+        <button type="submit" class="button button-block red-bg white-fg">Add Contact</button>
+      </form>
+
+    </ion-content>
+</ion-modal-view>

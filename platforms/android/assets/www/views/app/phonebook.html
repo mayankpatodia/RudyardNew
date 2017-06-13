@@ -1,0 +1,38 @@
+<ion-view class="bookmarks-view">
+  <ion-nav-title>
+    <span>PhoneBook</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon white-fg responsive" ng-click="toggleFilterBar()">
+      <i class="icon ion-ios-search-strong"></i>
+    </button>
+  </ion-nav-buttons>
+  <div class="bar bar-header item-input-inset red-bg" ng-hide="!filterBarVisible">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon black-fg"></i>
+      <input type="search" placeholder="Search" ng-model="filterText" class="grey-bg black-fg">
+    </label>
+    <button class="button button-clear white-fg" ng-click="toggleFilterBar()">
+      Cancel
+    </button>
+  </div>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="list">
+      <a class="item item-icon-right" ng-repeat="contact in contacts|filter: filterText" on-hold="onHold($index)">
+        <h2 class="red-fg">{{contact.first_name}} {{contact.last_name}}</h2>
+        <p>{{contact.phone}}</p>
+      </a>
+    </div>
+  </ion-content>
+  <div class="float-button" ng-click="newContact()">
+    <span class="height-fix">
+      <a class="content">
+        <i class="ion-person-add white-fg padding"></i>
+      </a>
+    </span>
+  </div>
+</ion-view>

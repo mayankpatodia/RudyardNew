@@ -1,0 +1,28 @@
+<ion-view class="walkthrough-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="bottom-content row" style="height=10%:">
+      <div class="col col-25">
+        <a class="login button button-block button-stable transparent-bg black-fg" ui-sref="auth.login">
+          <span>LOGIN</span>
+        </a>
+      </div>
+      <div class="col col-25 col-offset-50">
+        <a class="sign-up button button-block button-stable transparent-bg black-fg" ui-sref="auth.signup">
+          <span>SIGN UP</span>
+        </a>
+      </div>
+    </div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" style="height: 100%;">
+      <ion-slide>
+        <div class="box"><img src="img/ionic1.png" alt="Placeholder Image 1" /></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box"><img src="img/ionic2.png" alt="Placeholder Image 2" /></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box"><img src="img/ionic3.png" alt="Placeholder Image 3" /></div>
+      </ion-slide>
+    </ion-slide-box>
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,185 @@
+/* Empty. Add your own CSS if you like */
+/* Empty. Add your own CSS if you like */
+.red-bg{
+	background-color: #f4364c !important;
+}
+
+.white-bg{
+	background-color: #ffffff !important;
+}
+
+.grey-bg{
+	background-color: #f6f7eb !important;
+}
+
+.black-bg{
+	background-color: #393e41 !important;
+}
+
+.blue-bg{
+	background-color: #3f88c5 !important;
+}
+
+.transparent-bg{
+  background-color: transparent !important;
+}
+
+.red-fg{
+	color: #f4364c !important;
+}
+
+.white-fg{
+	color: #ffffff !important;
+}
+
+.grey-fg{
+	color: #f6f7eb !important;
+}
+
+.black-fg{
+	color: #393e41 !important;
+}
+
+.blue-fg{
+	color: #3f88c5 !important;
+}
+
+.blue-fg{
+  color: transparent !important;
+}
+
+
+
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 30px;
+  padding: 36px;
+  font-size: 30px;
+  background-color: #f4364c !important;
+  position: fixed;
+  bottom: 50px; /* Adjust to where you want it */
+  right: 50px; /* Adjust to where you want it */
+  z-index: 9999;
+  box-shadow: 0px 1px 5px -1px #393e41;
+}
+
+.platform-android .float-button {
+  bottom: 15px; /* Adjust to where you want it */
+  right: 15px; /* Adjust to where you want it */
+  padding: 30px;
+  font-size: 26px;
+}
+
+.platform-android .float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+
+  text-align: center;
+  margin-top: -13px; /* Note, this must be half the font size */
+}
+
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+
+  text-align: center;
+  margin-top: -15px; /* Note, this must be half the font size */
+}
+
+
+/*
+.platform-android .action-sheet-backdrop.active {
+	background-color: rgba(0, 0, 0, 0.2); 
+}
+.platform-android .action-sheet {
+	margin: 0; 
+}
+.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {
+	text-align: left;
+	border-color: transparent;
+	font-size: 16px;
+	color: inherit; 
+}
+.platform-android .action-sheet .action-sheet-title {
+	font-size: 14px;
+	padding: 16px;
+	color: #666; 
+}
+
+.platform-android .action-sheet .action-sheet-title {
+	padding-left: 16px;
+	color: #666; 
+}
+.platform-android .action-sheet .button.active, .platform-android .action-sheet .button.activated {
+	background: #e8e8e8; 
+}
+.platform-android .action-sheet-group {
+	margin: 0;
+	border-radius: 0;
+	background-color: #fafafa; 
+}
+.platform-android .action-sheet-cancel {
+	display: none; 
+}
+*/
+
+.platform-android .action-sheet-backdrop.active {
+	background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.platform-android .action-sheet .action-sheet-destructive {
+	color: #f4364c;
+}
+
+.platform-android .button {
+	padding-left: 16px;
+}
+
+
+
+
+/* LOGIN PAGE */
+
+.login-header{
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.custom-input{
+
+}
+
+.half-size-input{
+  padding: 0px;
+  width: 95%;
+  border-bottom: 1px solid #f6f7eb;
+}
+
+#audio_container{
+  background-color: #fafafa;
+  position: fixed;
+  left: 0%;
+  bottom: 0%;
+  right: 0%;
+  z-index: 1000;
+  box-shadow: 0px 1px 8px 0px #ccc;
+}
+
+#myAudio{
+  width: 100%;
+}

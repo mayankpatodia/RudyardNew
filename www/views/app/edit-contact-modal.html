@@ -1,0 +1,23 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header red-bg white-fg">
+    <h1 class="title white-fg">Edit Contact</h1>
+    <button class="button button-clear white-fg" ng-click="editContactModal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">First Name</span>
+        <input ng-model="editUser.first_name" type="text">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Last Name</span>
+        <input ng-model="editUser.last_name" type="text">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Number</span>
+        <input ng-model="editUser.phone" type="text">
+      </label>
+      <button class="button button-full red-bg white-fg" ng-click="editSubmit(editUser)">Update</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

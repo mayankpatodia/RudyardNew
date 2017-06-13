@@ -1,0 +1,21 @@
+<ion-view class="forms-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Recordings</span>
+  </ion-nav-title>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="list">
+      <a class="item item-icon-right" ng-repeat="recording in recordings|filter:{name: filterText}" on-hold="onHold($index)" ng-click="play(recording)">
+        <h2 class="red-fg">{{recording.callee_name}}</h2>
+        <p>{{recording.initiated_time}}</p>
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
