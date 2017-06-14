@@ -1,9 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('AuthCtrl', function($scope, $ionicConfig, $state, $stateParams, $rootScope) {
-  if($rootScope.getData('rudyard_user_info') != 'null'){
-    $state.go('app.phonebook');
-  }
+  
 })
 
 // APP
