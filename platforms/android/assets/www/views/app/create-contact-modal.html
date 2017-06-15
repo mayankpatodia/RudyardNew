@@ -18,11 +18,11 @@
             <span class="input-label">Last Name</span>
             <input ng-model="contact.last_name" type="text">
           </label>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-20">
-              <label class="item item-input">
-                <span class="input-label">Phone</span>
-                <input ng-model="contact.country_code" type="text">
+              <label class="item item-input"> -->
+                <intlpn ng-model="contact.phone" placeholder="Phone" default-country="us"></intlpn>
+                <!-- <button class="button" ng-click="select(phone)">{{phone.number}}</button>
               </label>
             </div>
             <div class="col-80">
@@ -31,7 +31,7 @@
                 <input ng-model="contact.phone" type="text">
               </label>
             </div>
-          </div>
+          </div> -->
           
         </div>
         <button type="submit" class="button button-block red-bg white-fg">Add Contact</button>

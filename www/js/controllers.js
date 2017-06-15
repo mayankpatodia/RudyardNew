@@ -1,7 +1,26 @@
 angular.module('starter.controllers', [])
 
 .controller('AuthCtrl', function($scope, $ionicConfig, $state, $stateParams, $rootScope) {
-  
+
+  $scope.select = function(phone){
+    //console.log(JSON.stringify($scope.phone));
+    if(phone == null)
+      $rootScope.showAlert('D', 'phone.number', false);
+    else
+      $rootScope.showAlert('D', phone.number, false);
+  }
+
+  document.addEventListener("deviceready", onDeviceReady, false);
+  function onDeviceReady() {
+  console.log(navigator.contacts);
+  }
+
+  $scope.pickContactUsingNativeUI = function () {
+     $cordovaContacts.pickContact().then(function (contactPicked) {
+       $scope.contact = contactPicked;
+       
+     });
+   }
 })
 
 // APP
@@ -500,11 +519,16 @@ angular.module('starter.controllers', [])
 
           params['first_name'] = contact.first_name;
           params['last_name'] = contact.last_name;
+          if(!contact.phone){
+            $rootScope.showAlert('D', 'Invalid Phone Number', false);
+            return;
+          }
+
           params['phone'] = contact.phone;
-          params['country_code'] = contact.country_code;
+          // params['country_code'] = contact.country_code;
           params['nonce'] = $scope.nonce;
             
-
+          
           $http({
             method: 'POST',
             data: params,
