@@ -2,40 +2,35 @@
     <!-- Modal header bar -->
     <ion-header-bar class="bar-secondary red-bg white-fg">
       <h1 class="title white-fg">New Contact</h1>
-      <button class="button button-clear white-fg" ng-click="closeNewContact()">Cancel</button>
+      <button class="button button-clear white-fg" ng-click="pick()">PhoneBook</button>
     </ion-header-bar>
 
     <!-- Modal content area -->
-    <ion-content class="padding">
+    <ion-content>
 
       <form ng-submit="createContact(contact)">
-        <div class="list">
-          <label class="item item-input">
-            <span class="input-label">First Name</span>
-            <input ng-model="contact.first_name" type="text">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Last Name</span>
-            <input ng-model="contact.last_name" type="text">
-          </label>
-          <!-- <div class="row">
-            <div class="col-20">
-              <label class="item item-input"> -->
-                <intlpn ng-model="contact.phone" placeholder="Phone" default-country="us"></intlpn>
-                <!-- <button class="button" ng-click="select(phone)">{{phone.number}}</button>
-              </label>
-            </div>
-            <div class="col-80">
-              <label class="item item-input">
-                <span class="input-label">Phone</span>
-                <input ng-model="contact.phone" type="text">
-              </label>
-            </div>
-          </div> -->
-          
+        <div  class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">First Name</span>
+              <input ng-model="contact.first_name" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Last Name</span>
+              <input ng-model="contact.last_name" type="text">
+            </label>
+              <intlpn ng-model="contact.phone" placeholder="Phone" default-country="us"></intlpn>
+          </div>
         </div>
-        <button type="submit" class="button button-block red-bg white-fg">Add Contact</button>
-      </form>
+        <div class="row">
+          <div class="col padding">
+            <button type="submit" class="button button-block red-bg white-fg">Submit</button>
+          </div>
+        </form>
+          <div class="col padding">
+            <button class="button button-block red-bg white-fg" ng-click="closeNewContact()">Cancel</button>
+          </div>
+        </div>
 
     </ion-content>
 </ion-modal-view>

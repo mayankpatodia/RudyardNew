@@ -2,18 +2,14 @@ angular.module('starter.controllers', [])
 
 .controller('AuthCtrl', function($scope, $ionicConfig, $state, $stateParams, $rootScope) {
 
-  $scope.select = function(phone){
-    //console.log(JSON.stringify($scope.phone));
-    if(phone == null)
-      $rootScope.showAlert('D', 'phone.number', false);
-    else
-      $rootScope.showAlert('D', phone.number, false);
-  }
+  
 
-  document.addEventListener("deviceready", onDeviceReady, false);
-  function onDeviceReady() {
-  console.log(navigator.contacts);
-  }
+  // document.addEventListener("deviceready", onDeviceReady, false);
+  // function onDeviceReady() {
+    
+  // }
+
+  
 
   $scope.pickContactUsingNativeUI = function () {
      $cordovaContacts.pickContact().then(function (contactPicked) {
@@ -293,6 +289,7 @@ angular.module('starter.controllers', [])
 
 .controller('PhoneBookCtrl', function($scope, $ionicConfig, $rootScope, $http, $state, $ionicPopup, $ionicActionSheet, $ionicModal) {
 
+  $scope.filterText = '';
   var cont = $rootScope.getData('contacts');
   if(cont == '' || cont == null){
     if($rootScope.getData('rudyard_user_info') == 'null'){
@@ -321,6 +318,11 @@ angular.module('starter.controllers', [])
   else{
     $scope.contacts = JSON.parse(cont);
   }
+
+
+
+  $scope.filterBarVisible = false;
+
 
   $scope.doRefresh = function(){
     var request = 'http://174.138.55.72/user/api_generic/?&auth_token=' + $scope.user.auth_token + '&source=api_phone_book_get&callback=JSON_CALLBACK';
@@ -520,7 +522,7 @@ angular.module('starter.controllers', [])
           params['first_name'] = contact.first_name;
           params['last_name'] = contact.last_name;
           if(!contact.phone){
-            $rootScope.showAlert('D', 'Invalid Phone Number', false);
+            $rootScope.showAlert('Error', 'Invalid Phone Number', false);
             return;
           }
 
@@ -569,12 +571,69 @@ angular.module('starter.controllers', [])
         contact.phone = "";
       };
 
+      $scope.pick = function(){
+        navigator.contacts.pickContact(function(foundContact){
+          $scope.contact = {};
+          var fullName = foundContact.displayName.split(' ');
+          $scope.contact.first_name = fullName[0];
+          if(fullName.length > 1)
+            $scope.contact.last_name = fullName[fullName.length - 1];
+          $scope.numbers = foundContact.phoneNumbers;
+          if($scope.numbers.length == 1)
+            $scope.selectTitle = 'Confirm Number'
+          else
+            $scope.selectTitle = 'Select Number'
+          $scope.showPopup();
+        },function(err){
+            //$rootScope.showAlert('D', 'Error:' + JSON.stringify(err), false);
+        });
+      }
+
+      function onResume(resumeEvent) {
+          if(resumeEvent.pendingResult) {
+              if(resumeEvent.pendingResult.pluginStatus === "OK") {
+                  var contact = navigator.contacts.create(resumeEvent.pendingResult.result);
+                  successCallback(contact);
+              } else {
+                  failCallback(resumeEvent.pendingResult.result);
+              }
+          }
+      }
+
+      // Triggered on a button click, or some other target
+      $scope.showPopup = function() {
+        $scope.data = {};
+
+        // An elaborate, custom popup
+        var myPopup = $ionicPopup.show({
+          template: '<div class="list">' + 
+                      '<a class="item" ng-repeat="number in numbers" ng-click="setPhone(number.value)">' +
+                          '<h2 class="red-fg">{{number.value}}</h2>' +
+                        '</a>' +
+                      '</div>',
+          title: $scope.selectTitle,
+          scope: $scope,
+          buttons: [
+            { text: 'Dismiss' },
+          ]
+        });
+
+        $scope.setPhone = function(num){
+          $scope.contact.phone = num;
+          myPopup.close();
+        }
+      }
+
+
+
+
       $scope.newContact = function() {
         $scope.contactModal.show();
       };
 
       $scope.closeNewContact = function() {
         $scope.contactModal.hide();
+        return;
       }
 
     // A confirm dialog
@@ -610,6 +669,14 @@ angular.module('starter.controllers', [])
 
 .controller('RecordingsCtrl', function($scope, $ionicConfig, $rootScope, $http, $state, $stateParams) {
   var cont = $rootScope.getData('recordings');
+
+  $scope.filterBarVisible = false;
+
+  $scope.toggleFilterBar = function(){
+    $scope.filterText = '';
+    $scope.filterBarVisible = !$scope.filterBarVisible;
+  }
+  
   if(cont == '' || cont == null){
     if($rootScope.getData('rudyard_user_info') == 'null'){
       $rootScope.showAlert('Error', 'Sorry, we could not authenticate you. Please login again to continue', true);
