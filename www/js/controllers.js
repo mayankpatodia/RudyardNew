@@ -2,21 +2,23 @@ angular.module('starter.controllers', [])
 
 .controller('AuthCtrl', function($scope, $ionicConfig, $state, $stateParams, $rootScope) {
 
+  $scope.check = function(){
+    var networkState = navigator.connection.type;
+    console.log(networkState);
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.CELL]     = 'Cell generic connection';
+        states[Connection.NONE]     = 'No network connection';
+  }
   
 
-  // document.addEventListener("deviceready", onDeviceReady, false);
-  // function onDeviceReady() {
-    
-  // }
-
-  
-
-  $scope.pickContactUsingNativeUI = function () {
-     $cordovaContacts.pickContact().then(function (contactPicked) {
-       $scope.contact = contactPicked;
-       
-     });
-   }
+      // $rootScope.showAlert('D', 'Connection type: ' + states[networkState], false);
 })
 
 // APP
@@ -574,16 +576,18 @@ angular.module('starter.controllers', [])
       $scope.pick = function(){
         navigator.contacts.pickContact(function(foundContact){
           $scope.contact = {};
-          var fullName = foundContact.displayName.split(' ');
-          $scope.contact.first_name = fullName[0];
-          if(fullName.length > 1)
-            $scope.contact.last_name = fullName[fullName.length - 1];
-          $scope.numbers = foundContact.phoneNumbers;
-          if($scope.numbers.length == 1)
-            $scope.selectTitle = 'Confirm Number'
-          else
-            $scope.selectTitle = 'Select Number'
-          $scope.showPopup();
+          if(foundContact){
+            var fullName = foundContact.displayName.split(' ');
+            $scope.contact.first_name = fullName[0];
+            if(fullName.length > 1)
+              $scope.contact.last_name = fullName[fullName.length - 1];
+            $scope.numbers = foundContact.phoneNumbers;
+            if($scope.numbers.length == 1)
+              $scope.selectTitle = 'Confirm Number'
+            else
+              $scope.selectTitle = 'Select Number'
+            $scope.showPopup();
+          }
         },function(err){
             //$rootScope.showAlert('D', 'Error:' + JSON.stringify(err), false);
         });
@@ -676,7 +680,7 @@ angular.module('starter.controllers', [])
     $scope.filterText = '';
     $scope.filterBarVisible = !$scope.filterBarVisible;
   }
-  
+
   if(cont == '' || cont == null){
     if($rootScope.getData('rudyard_user_info') == 'null'){
       $rootScope.showAlert('Error', 'Sorry, we could not authenticate you. Please login again to continue', true);

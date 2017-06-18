@@ -140,6 +140,23 @@ module.exports = [
         "merges": [
             ""
         ]
+    },
+    {
+        "id": "cordova-plugin-network-information.network",
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "pluginId": "cordova-plugin-network-information",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "id": "cordova-plugin-network-information.Connection",
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "pluginId": "cordova-plugin-network-information",
+        "clobbers": [
+            "Connection"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -154,7 +171,8 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-x-toast": "2.6.0",
     "cordova-plugin-compat": "1.0.0",
-    "cordova-plugin-contacts": "2.3.1"
+    "cordova-plugin-contacts": "2.3.1",
+    "cordova-plugin-network-information": "1.3.3"
 };
 // BOTTOM OF METADATA
 });

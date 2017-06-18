@@ -47,6 +47,10 @@
                         {
                             "xml": "<feature name=\"Contacts\"><param name=\"ios-package\" value=\"CDVContacts\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -93,6 +97,9 @@
         },
         "cordova-plugin-contacts": {
             "CONTACTS_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.rudyard2593940"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.ionicframework.rudyard2593940"
         }
     },
@@ -270,6 +277,23 @@
             "merges": [
                 "Contact"
             ]
+        },
+        {
+            "id": "cordova-plugin-network-information.network",
+            "file": "plugins/cordova-plugin-network-information/www/network.js",
+            "pluginId": "cordova-plugin-network-information",
+            "clobbers": [
+                "navigator.connection",
+                "navigator.network.connection"
+            ]
+        },
+        {
+            "id": "cordova-plugin-network-information.Connection",
+            "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+            "pluginId": "cordova-plugin-network-information",
+            "clobbers": [
+                "Connection"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -282,6 +306,7 @@
         "ionic-plugin-keyboard": "2.2.1",
         "cordova-plugin-x-toast": "2.6.0",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-contacts": "2.3.1"
+        "cordova-plugin-contacts": "2.3.1",
+        "cordova-plugin-network-information": "1.3.3"
     }
 }

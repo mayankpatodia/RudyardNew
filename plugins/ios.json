@@ -34,6 +34,9 @@
         "cordova-plugin-contacts": {
             "CONTACTS_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.ionicframework.rudyard2593940"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicframework.rudyard2593940"
         }
     },
     "dependent_plugins": {
