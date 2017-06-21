@@ -639,6 +639,7 @@ angular.module('starter.controllers', [])
 
 
       $scope.newContact = function() {
+        console.log('New contact Modal');
         $scope.contactModal.show();
       };
 
