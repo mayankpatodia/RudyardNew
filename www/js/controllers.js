@@ -578,20 +578,20 @@ angular.module('starter.controllers', [])
         navigator.contacts.pickContact(function(foundContact){
           $scope.contact = {};
           console.log('Returned' + JSON.stringify(foundContact));
-          if(foundContact){
-            var fullName = foundContact.displayName.split(' ');
-            console.log('Full Name: ' + fullName);
-            $scope.contact.first_name = fullName[0];
-            if(fullName.length > 1)
-              $scope.contact.last_name = fullName[fullName.length - 1];
-            $scope.numbers = foundContact.phoneNumbers;
-            console.log('Numbers: ' + JSON.stringify($scope.numbers));
-            if($scope.numbers.length == 1)
-              $scope.selectTitle = 'Confirm Number'
-            else
-              $scope.selectTitle = 'Select Number'
-            $scope.showPopup();
-          }
+          // if(foundContact){
+          //   var fullName = foundContact.displayName.split(' ');
+          //   console.log('Full Name: ' + fullName);
+          //   $scope.contact.first_name = fullName[0];
+          //   if(fullName.length > 1)
+          //     $scope.contact.last_name = fullName[fullName.length - 1];
+          //   $scope.numbers = foundContact.phoneNumbers;
+          //   console.log('Numbers: ' + JSON.stringify($scope.numbers));
+          //   if($scope.numbers.length == 1)
+          //     $scope.selectTitle = 'Confirm Number'
+          //   else
+          //     $scope.selectTitle = 'Select Number'
+          //   $scope.showPopup();
+          // }
         },function(err){
           console.log('Error fetching PhoneBook');
             //$rootScope.showAlert('D', 'Error:' + JSON.stringify(err), false);
